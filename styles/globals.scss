@@ -1,0 +1,323 @@
+@charset "utf-8";
+
+// Import a Google Font
+@font-face { 
+    font-family: 'Stick No Bills';
+    src: url('../fonts/StickNoBills-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Scheherazade New";
+    src: url('../fonts/ScheherazadeNew-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Scheherazade New";
+    src: url('../fonts/ScheherazadeNew-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+// Set your brand colors
+$seablue: #88D9E6;
+$celeste: #c5fffd;
+$slategray: #374b4a;
+$darkgray: #2B2B2B;
+$orangeyellow: #f4d35e;
+$sandybrown: #ee964b;
+
+
+// Update Bulma's global variables
+$title-family: "Stick No Bills", sans-serif;
+$family-serif: "Scheherazade New", serif;
+$family-primary: $family-serif;
+$grey-dark: $slategray;
+$primary: $seablue;
+$info: $orangeyellow;
+$link: $celeste;
+$link-hover: $orangeyellow;
+$widescreen-enabled: true;
+$fullhd-enabled: true;
+$body-font-size: 1.7em;
+$text: #FFFFFF;
+$warning: $sandybrown;
+
+// card styles
+$card-background-color: $darkgray;
+$card-header-color: $darkgray;
+$card-header-background-color: white;
+
+
+// footer styles
+$footer-background-color: $darkgray;
+$footer-padding: 1.5rem;
+
+// navbar styles
+$navbar-background-color: none;
+$navbar-item-hover-background-color: $darkgray;
+$navbar-breakpoint: 769px;
+
+
+// Update some of Bulma's component variables
+$body-background-color: $grey-dark;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+$title-size: 3rem;
+$title-color: $seablue;
+
+// Form Variables
+$label-color: white;
+$help-size: 1.25rem;
+
+$section-padding-desktop: 2rem 1.5rem;
+$section-padding: 2rem 1.5rem;
+// Import only what you need from Bulma
+@import "../node_modules/bulma/bulma.sass";
+
+// Navbar
+
+@include from($tablet) {
+    .divider {
+        width: 90%;
+        border-bottom: $link 2px solid;
+        margin-top: -1rem;
+    }
+}
+.navbar-brand {
+    margin-right: 3rem;
+}
+
+.navbar-burger:hover {
+    color: $link;
+}
+
+
+// Quick Widths
+
+.wide-30 {
+    width: 30%;
+}
+
+.wide-40 {
+    width: 40%;
+}
+
+.wide-50 {
+    width: 50%;
+}
+
+.wide-60 {
+    width: 60%;
+}
+
+// Search classes
+
+.searchbar {
+    select {
+        border-right: 1px darkgray solid;
+        border-radius: 0;
+        width: 100%;
+
+        @include until ($tablet) {
+            border-right: none;
+        }
+    }
+    .select {
+        @include until ($tablet) {
+            width: 100%;
+        }
+    }
+
+    input {
+        border-radius: 0;
+    }
+    button {
+        border-radius: 0;
+        width: 100%;
+    }
+}
+
+.wrapper {
+    min-height: calc(100vh - 5.5rem);
+}
+
+// results
+
+.work-container {
+    background-color: $grey-dark;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 3px 10px #141414;
+
+    .work-header {
+        background-color: $seablue;
+        color: $black;
+        padding: 0.6rem;
+        font-size: 2rem;
+        display: inherit;
+        cursor: pointer;
+
+        .work-title {
+            margin-right: 2rem;
+        }
+
+        .matches-circle {
+            height: 3rem;
+            width: 3rem;
+            background-color: white;
+            color: $slategray;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .matches-count {
+            text-align: center;
+        }
+
+        .plus-icon {
+            display: block;
+            margin-left: auto;
+            margin-right: 2rem;
+            font-size: 2.5rem;
+            line-height: 1;
+            font-weight: bold;
+            
+        }
+    }
+
+    .matches-container {
+        display:block;
+        visibility: hidden;
+        overflow: hidden;
+        height: 0;
+        opacity: 0;
+        margin: 0 2rem 0 2rem;
+        transition-property: height, opacity, visibility, margin;
+        transition-duration: 0.7s;
+        transition-timing-function: ease;
+    }
+
+    .matches-container.active {
+        visibility: visible;
+        opacity: 1;
+        transition-property: height, opacity, visibility, margin;
+        transition-duration: 0.7s;
+        transition-timing-function: ease;
+      	margin-top: 2rem;
+      	margin-bottom: 2rem;
+    }
+
+}
+
+b {
+    color: $orangeyellow;
+}
+
+.match {
+    padding: 1rem 0;
+    border-bottom: $orangeyellow solid 1px;
+
+    .match-text::first-letter {
+        font-size: 6rem;
+        float:left;
+        line-height: 0.8;
+        padding: 0 0.8rem 0 0;
+        text-transform: uppercase;
+    }
+
+    .page {
+        margin-right: 3rem;
+        margin-left: auto;
+        text-align: right;
+        font-size: 2.5rem;
+
+    }
+}
+
+.match:last-of-type {
+    border-bottom: none;
+}
+
+.loading {
+    @include loader;
+    height: 100px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.clickable {
+    cursor: pointer;
+}
+
+.author-children {
+    margin-left: auto;
+    margin-right: auto;
+    @include widescreen {
+        max-width: 1080px;
+    }
+    @include mobile {
+
+    }
+
+}
+
+.side-image {
+    margin-right: 1rem;
+    @include mobile {
+        width: 250px;
+    }
+}
+
+
+.card-container {
+    display:block;
+    visibility: hidden;
+    overflow: hidden;
+    transition-property: height, opacity, visibility, margin;
+    transition-duration: 0.7s;
+    transition-timing-function: ease;
+}
+
+.card-container.active {
+    visibility: visible;
+    transition-property: height, opacity, visibility, margin;
+    transition-duration: 0.7s;
+    transition-timing-function: ease;
+}
+
+.is-clear {
+    clear: both;
+}
+
+.card-header-icon {
+    color: $darkgray;
+}
+
+// Contact Form Styles
+
+.contact-form {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1080px;
+}
+
+// Background
+.home-background {
+    background-image: url(../public/img/whale1.jpg);
+    background-repeat: no-repeat;
+    background-size: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-blend-mode: overlay;
+}
+
+.color-bg {
+    background-color: rgba($grey-dark, 0.8);
+}
