@@ -1,7 +1,8 @@
 import React from 'react'
 import { strip, getData } from '../lib/util'
+import { withRouter } from 'next/router'
 
-export default class SearchForm extends React.Component {
+class SearchForm extends React.Component {
     constructor(props) {
         super(props)
 
@@ -13,6 +14,8 @@ export default class SearchForm extends React.Component {
             prevAuth: '',
             prevPhrase: ''
         }
+
+        this.router = props.router
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -31,6 +34,7 @@ export default class SearchForm extends React.Component {
     }
 
     async handleSubmit(event) {
+        console.log('handle Submit ran')
         event.preventDefault()
         if (this.state.author === 'Select an author') {
             this.setState({
@@ -55,6 +59,9 @@ export default class SearchForm extends React.Component {
                 ['prevPhrase']: this.state.phrase
             })
             this.props.onSearch(this.state.author, this.state.phrase)
+            
+            //const link = '/search?author=' + this.state.author + '&phrase=' + this.state.phrase 
+            //this.router.push(link)
         }
         
 
@@ -115,3 +122,5 @@ export default class SearchForm extends React.Component {
         )
     }
 }
+
+export default withRouter(SearchForm)

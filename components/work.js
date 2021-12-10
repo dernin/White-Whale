@@ -1,6 +1,7 @@
 import React from 'react'
 import { getTitle, authorFolder } from '../lib/util'
 import Match from './match'
+import { runQuery } from '../lib/macrometa'
 
 export default class Work extends React.Component {
     constructor(props) {
@@ -9,14 +10,16 @@ export default class Work extends React.Component {
         this.state = {
             matchVisible: false,
             matchesHeight: 0,
-            expandIcon: '+'
+            expandIcon: '+',
         }
 
         this.Expand = this.Expand.bind(this)
         this.resizeContainer = this.resizeContainer.bind(this)
         
-
+    this.pageData = props.pageData
+    this.author = props.author
     this.data = props.data
+    this.ia = this.data['ia']
 
     // Get book title
     this.title = getTitle(this.data['ia'], props.author)
@@ -24,15 +27,11 @@ export default class Work extends React.Component {
     // Get number of matches
     this.matches = this.data['matches']
 
-    const authorFold = authorFolder(props.author)
-
-    this.pageData = require('../public/data/' +
-        authorFold +
-        '/' +
-        this.data['ia'] +
-        '.json')
-
+    //const authorFold = authorFolder(props.author)
+    
+    //this.pageData = this.getPageData(props.author, this.data['ia'])
     }
+
 
     resizeContainer() {
         if (this.state.matchVisible) {
@@ -74,8 +73,10 @@ export default class Work extends React.Component {
         this.matchesContainer.style.height = height + "px"
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         window.addEventListener('resize', this.resizeContainer)
+        //data = await runQuery(`FOR file IN works FILTER file.author == '${this.author}' RETURN file`)
+        
     }
 
     componentWillUnmount() {

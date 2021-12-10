@@ -4,17 +4,21 @@ import Link from 'next/dist/client/link'
 import { getAuthors, getAuthorWorks } from '../lib/authors'
 import AuthorDescription from '../components/authorDescription'
 import Block from '../components/block'
+import { runQuery } from '../lib/macrometa'
 
 export async function getStaticProps() {
     const authorList = getAuthors()
     //console.log(authorList)
     const authorDataList = {}
+    const worksData = await runQuery('FOR file IN authors RETURN file')
+    //console.log(worksData)
+
     for (var author of authorList) {
-        //console.log(authorList[author])
-        const works = await getAuthorWorks(author)
-        const worksData = JSON.parse(works)
-        //authorList.push(worksData)
-        authorDataList[author] = worksData
+        //console.log(author)
+        authorDataList[author] = worksData.filter(file => {
+            return file.name == author
+        })
+        
     }
 
     //console.log("authorList: ")
@@ -29,6 +33,7 @@ export async function getStaticProps() {
 }
 
 export default function About(props) {
+    //console.log(props.authorDataList)
 
     const aboutText = <>
     <Block>White Whale is a tool for comparing the works of an author. Repetition of ideas, language, and allusions have struck me as a reader, as I have made my way through Herman Melville&apos;s complete works. Not only can you draw lines between the works on topics like sailing, characters finding themselves lost or stuck somewhere, and exploration of exotic locations that lead to inner discovery, but in classical allusions to Ovid and Homer in <em>White Jacket</em> and <em>Mardi</em> or Biblical allusions in <em>Moby-Dick</em> and <em>Clarel</em> (which unfortunately could not be included in the search &mdash; see below). I thought it would be helpful to new and seasoned academics and admirers of literature to be able to quickly cross reference between and within works to aid their scholarship and understanding of these texts. </Block>

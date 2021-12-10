@@ -9,6 +9,7 @@ import CardHeader from './card/cardHeader'
 import React from 'react'
 import Image from 'next/image'
 
+// !!! Issue with how data is being taken here (specifically props.data)
 export default class AuthorDescription extends React.Component {
     constructor(props) {
         super(props)
@@ -23,12 +24,13 @@ export default class AuthorDescription extends React.Component {
         this.author = authors[props.title]
         this.description = this.author['summary']
 
-        this.data = props.data
+        this.data = props.data[0]
+        console.log(this.data)
 
         this.markdown = <ReactMarkdown>{this.description}</ReactMarkdown>
 
         // get keys (title) to each work
-        this.keys = Object.keys(props.data)
+        this.keys = Object.keys(this.data)
 
         this.src = '/img/' + replaceSpace(this.title) + '.jpg'
 

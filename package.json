@@ -12,6 +12,9 @@
   "dependencies": {
     "@sendgrid/mail": "^7.6.0",
     "bulma": "^0.9.3",
+    "jsc8": "^0.16.3",
+    "json5": "^2.2.0",
+    "jsonic": "^1.0.1",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -19,7 +22,8 @@
     "remark-gfm": "^3.0.0",
     "sass": "^1.42.1",
     "sib-api-v3-sdk": "^8.2.1",
-    "stream": "0.0.2"
+    "stream": "0.0.2",
+    "swr": "^1.1.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",

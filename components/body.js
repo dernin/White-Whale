@@ -1,157 +1,57 @@
 import Link from 'next/dist/client/link'
-import React from 'react'
+import React, { useState } from 'react'
 import SearchForm from './searchform'
-import { getData, resolveAfter1 } from '../lib/util'
+import { getData, resolveAfter10 } from '../lib/util'
 import Work from './work'
 import Loader from './loader'
+import Results from './results'
 
-export default class Body extends React.Component {
-    constructor(props) {
-        super(props)
 
-        this.state = {
-            searching: false,
-            searched: false,
-            longSearch: false,
-            searchResults: {},
-            author: '',
-            longSearchMessage: '',
-        }
+export default function Body(props) {
+    
+    const [searched, setSearched] = useState(false)
+    const [currentPhrase, setCurrentPhrase] = useState('')
+    const [currentAuthor, setCurrentAuthor] = useState('')
 
-        this.handleSearch = this.handleSearch.bind(this)
 
-        //this.longSearchMessage = <div className="has-text-centered mt-2">This may take a few minutes. Please be patient as we search through {this.state.author}'s bibliography.</div>
+    function handleSearch(author, phrase) {
+        setSearched(true)
+        setCurrentPhrase(phrase)
+        setCurrentAuthor(author)
     }
 
-    async handleSearch(author, phrase) {
-        this.setState({
-            ['searched']: false,
-            ['searching']: true,
-            ['longSearch']: false,
-            ['searchResults']: {},
-            ['author']: author,
-            ['longSearchMessage']: (
-                <div className="has-text-centered mt-2">
-                    This may take a few minutes. Please be patient as we search
-                    through {author}&apos;s bibliography.
+
+    return (
+        <div className="container mb-6">
+            <div className="color-bg">
+                <div className="container wide-50 has-text-centered pt-5">
+                    {props.welcomeText}
                 </div>
-            ),
-        })
-
-        const apiString = '/api/author=' + author + '&phrase=' + phrase
-        const data = await getData(apiString)
-        this.setState({
-            ['searched']: true,
-            ['searching']: false,
-            ['longSearch']: false,
-            ['searchResults']: data,
-            ['author']: author,
-            ['longSearchMessage']: '',
-        })
-    }
-
-    buildResults(results) {
-        //console.log(results)
-        /*
-        while(this.section.firstChild) {
-            this.section.firstChild.remove()
-        } */
-
-        const formattedResults = results.map((work) => {
-            if (work['matches'] != null && work['matches'].length > 0) {
-                return (
-                    <Work
-                        key={work['ia']}
-                        data={work}
-                        author={this.state.author}
-                    />
-                )
-            }
-        })
-        const filteredResults = formattedResults.filter((result) => {
-            return result != null
-        })
-
-        if (filteredResults.length > 0) {
-            return filteredResults
-        } else {
-            return <div className="has-text-centered">No results</div>
-        }
-    }
-
-    loadingResults() {
-        setTimeout(() => {
-            this.setState({
-                ['longSearch']: true,
-            })
-        }, 5000)
-        //console.log('loading results')
-
-        let longSearchMessage
-        if (this.state.longSearch) {
-            longSearchMessage = (
-                <div className="has-text-centered mt-2">
-                    This may take a few minutes. Please be patient as we search
-                    through {this.state.author}&apos;s bibliography.
-                </div>
-            )
-        } else {
-            longSearchMessage = null
-        }
-
-        return (
-            <>
-                <div className="loading"></div>
-                {longSearchMessage}
-            </>
-        )
-    }
-
-    render() {
-        /*
-        let results
-        if (this.state.searched) {
-            results = JSON.stringify(this.state.searchResults)
-        }
-        else results = "" */
-
-        return (
-            <div className="container mb-6">
-                <div className="color-bg">
-                    <div className="container wide-50 has-text-centered pt-5">
-                        {this.props.welcomeText}
+                <div className="section">
+                    <div className="mb-5">
+                        Simply choose an author and enter a phrase.{' '}
+                        <Link href="/about#authors">
+                            <a>Why these authors?</a>
+                        </Link>
                     </div>
-                    <div className="section">
-                        <div className="mb-5">
-                            Simply choose an author and enter a phrase.{' '}
-                            <Link href="/about#authors">
-                                <a>Why these authors?</a>
-                            </Link>
-                        </div>
-                    </div>
-                    <SearchForm
-                        authorList={this.props.authorList}
-                        onSearch={this.handleSearch}
-                    />
                 </div>
+                <SearchForm
+                    authorList={props.authorList}
+                    onSearch={handleSearch}
+                />
+            </div>
 
-                <div className="pt-5">
+            <div className="pt-5">
                 <div
                     className="section pt-0"
-                    ref={(section) => {
+                    /*ref={(section) => {
                         this.section = section
-                    }}
+                    }} */
                 >
-                    {this.state.searching && (
-                        <Loader
-                            longSearchMessage={this.state.longSearchMessage}
-                        />
-                    )}
-                    {this.state.searched &&
-                        this.buildResults(this.state.searchResults)}
-                </div>
+                    {searched &&
+                        <Results author={currentAuthor} phrase={currentPhrase} /> }
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }

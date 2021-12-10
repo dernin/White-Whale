@@ -10,8 +10,9 @@ export default function Match(props) {
 
     const data = props.data
     //console.log(data['par'][0]['page'])
-    //console.log(props.pageData)
-    const page = getPageNumber(data['par'][0]['page'], props.pageData)
+    //console.log(props.pageData[0])
+    
+    const page = getPageNumber(data['par'][0]['page'], props.pageData[0])
     
     const pageNumber = data['par'][0]['page']
 
