@@ -7,6 +7,7 @@ import Block from '../components/block'
 import { runQuery } from '../lib/macrometa'
 
 export async function getStaticProps() {
+    await getFabric()
     const authorList = getAuthors()
     //console.log(authorList)
     const authorDataList = {}
