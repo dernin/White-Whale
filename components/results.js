@@ -22,7 +22,7 @@ const fetcher = async (url) => {
     return res.json()
 }
 
-function fetchResults(apiString) {
+function useFetchResults(apiString) {
     const { data, error } = useSWR(apiString, fetcher, {
         onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
             // if more than 30 tries, give up (5 minutes)
@@ -55,11 +55,11 @@ export default function Results(props) {
 
     
 
-    const searchresults = fetchResults(
+    const searchresults = useFetchResults(
         `/api/author=${props.author}&phrase=${props.phrase}`
     )
 
-    const pageData = fetchResults(`/api/works?author=${props.author}`)
+    const pageData = useFetchResults(`/api/works?author=${props.author}`)
 
     console.log('pageData', pageData.results)
 
