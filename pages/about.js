@@ -4,7 +4,7 @@ import Link from 'next/dist/client/link'
 import { getAuthors, getAuthorWorks } from '../lib/authors'
 import AuthorDescription from '../components/authorDescription'
 import Block from '../components/block'
-import { runQuery } from '../lib/macrometa'
+import { runQuery, getFabric } from '../lib/macrometa'
 
 export async function getStaticProps() {
     await getFabric()
