@@ -25,7 +25,7 @@ export default async function handler(req, res) {
             populateCollection('caching', {name: author, search: phrase})
         }
         
-        return res.status(102).json({error: 'caching'})
+        return res.status(299).json({error: 'caching'})
     } else {
         return res.status(200).json(results[0])
     }
