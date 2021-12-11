@@ -11,7 +11,7 @@ const fetcher = async (url) => {
     // If the status code is not in the range 200-299,
     // we still try to parse and throw it.
     console.log('res: ', res)
-    if (res.status == 102) {
+    if (res.status == 299) {
         const error = new Error('An error occurred while fetching the data.')
         // Attach extra info to the error object.
         error.info = await res.json()
