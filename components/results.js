@@ -28,9 +28,12 @@ function useFetchResults(apiString) {
             // if more than 30 tries, give up (5 minutes)
             if (retryCount >= 30) return
 
-            // Retry after 10 seconds
-            setTimeout(() => revalidate({ retryCount }), 10000)
+            // Retry after 15 seconds
+            setTimeout(() => revalidate({ retryCount }), 15000)
         },
+        revalidateIfStale: false,
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false,
     })
     console.log('data', data)
 
@@ -51,10 +54,6 @@ export default function Results(props) {
         </div>
     )
 
-    
-
-    
-
     const searchresults = useFetchResults(
         `/api/author=${props.author}&phrase=${props.phrase}`
     )
@@ -63,7 +62,6 @@ export default function Results(props) {
 
     console.log('pageData', pageData.results)
 
-    
     //console.log('working on results')
     //console.log(searchresults.results)
 
