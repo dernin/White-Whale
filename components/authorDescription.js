@@ -25,7 +25,7 @@ export default class AuthorDescription extends React.Component {
         this.description = this.author['summary']
 
         this.data = props.data[0]
-        console.log(this.data)
+        //console.log(this.data)
 
         this.markdown = <ReactMarkdown>{this.description}</ReactMarkdown>
 
@@ -142,18 +142,3 @@ export default class AuthorDescription extends React.Component {
     }
 }
 
-export function buildWorkList(author) {
-    // get author file
-    const file = getAuthorWorks(author)
-    const data = JSON.parse(file)
-
-    const array = [data[0]]
-
-    return (
-        <>
-            {array.map((work) => {
-                return <SimpleWork title={work} id={work['item_id']} key={work['item_id']} />
-            })}
-        </>
-    )
-}

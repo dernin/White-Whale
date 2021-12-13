@@ -1,9 +1,6 @@
 import Link from 'next/dist/client/link'
 import React, { useState } from 'react'
 import SearchForm from './searchform'
-import { getData, resolveAfter10 } from '../lib/util'
-import Work from './work'
-import Loader from './loader'
 import Results from './results'
 
 
@@ -44,9 +41,6 @@ export default function Body(props) {
             <div className="pt-5">
                 <div
                     className="section pt-0"
-                    /*ref={(section) => {
-                        this.section = section
-                    }} */
                 >
                     {searched &&
                         <Results author={currentAuthor} phrase={currentPhrase} /> }
