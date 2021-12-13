@@ -10,7 +10,7 @@ const fetcher = async (url) => {
 
     // If the status code is not in the range 200-299,
     // we still try to parse and throw it.
-    console.log('res: ', res)
+    //console.log('res: ', res)
     if (res.status == 299) {
         const error = new Error('An error occurred while fetching the data.')
         // Attach extra info to the error object.
@@ -35,7 +35,7 @@ function useFetchResults(apiString) {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
     })
-    console.log('data', data)
+    //console.log('data', data)
 
     return {
         results: data,
@@ -45,8 +45,7 @@ function useFetchResults(apiString) {
 }
 
 export default function Results(props) {
-    const [searchResults, setSearchResults] = useState({})
-    const [searched, setSearched] = useState(false)
+
     const longSearchMessage = (
         <div className="has-text-centered mt-2">
             This may take a few minutes. Please be patient as we search through{' '}
@@ -60,57 +59,16 @@ export default function Results(props) {
 
     const pageData = useFetchResults(`/api/works?author=${props.author}`)
 
-    console.log('pageData', pageData.results)
-
-    //console.log('working on results')
-    //console.log(searchresults.results)
-
-    //console.log(searchresults.isError)
-
-    /*
-    if(!searched) {
-        const apiString = `/api/author=${props.author}&phrase=${props.phrase}&test=false`
-        const { data, error } = useSWR(apiString, fetcher)
-        //console.log(data)
-        //if (error) return false
-        //if (!data) return false
-        if (data) {
-            console.log(data['allMatches'])
-            setSearchResults(data['allMatches'])
-            setSearched(true)
-        }
-    } */
-
-    /*
-    async function search(searched, test, author, phrase) {
-        if (searched == false) {
-            const results = run(test, author, phrase)
-            if (results == false) {
-                await resolveAfter10()
-                search(false, true)
-            } else {
-                searched = true
-                console.log(results)
-                return results
-            }
-        }
-    } */
+    //console.log('pageData', pageData.results)
 
     function buildResults(results, pageData) {
-        //console.log(results)
-        /*
-        while(this.section.firstChild) {
-            this.section.firstChild.remove()
-        } */
 
-        console.log(pageData)
 
         const formattedResults = results.map((work) => {
             if (work['matches'] != null && work['matches'].length > 0) {
                 const workPages = pageData.filter((entry) => {
                     return entry['ia'] == work['ia']
                 })
-                //const workPages = {}
                 return (
                     <Work
                         key={work['ia']}

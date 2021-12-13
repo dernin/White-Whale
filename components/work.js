@@ -75,7 +75,6 @@ export default class Work extends React.Component {
 
     async componentDidMount() {
         window.addEventListener('resize', this.resizeContainer)
-        //data = await runQuery(`FOR file IN works FILTER file.author == '${this.author}' RETURN file`)
         
     }
 

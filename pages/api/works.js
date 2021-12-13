@@ -4,13 +4,10 @@ import { runQuery } from '../../lib/macrometa'
 export default async function handler(req, res) {
     const query = req.query
     const author = query['author']
-    console.log(author)
 
     const results = await runQuery(
         `FOR file IN works FILTER file.author == '${author}' RETURN file`
     )
-
-    console.log(results)
 
         // if no results, send back false
         if (results.length == 0) {

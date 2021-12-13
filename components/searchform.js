@@ -1,6 +1,5 @@
 import React from 'react'
 import { strip, getData } from '../lib/util'
-import { withRouter } from 'next/router'
 
 class SearchForm extends React.Component {
     constructor(props) {
@@ -60,8 +59,6 @@ class SearchForm extends React.Component {
             })
             this.props.onSearch(this.state.author, this.state.phrase)
             
-            //const link = '/search?author=' + this.state.author + '&phrase=' + this.state.phrase 
-            //this.router.push(link)
         }
         
 
@@ -85,10 +82,6 @@ class SearchForm extends React.Component {
                                     return <option key={name} value={name}>{name}</option>
                                 })}
 
-                                {/*
-                        <option>Herman Melville</option>
-                        <option>Nathaniel Hawthorn</option>
-                        */}
                             </select>
                             <div className="has-text-warning is-size-4">
                                 {this.state.authorError}
@@ -123,4 +116,4 @@ class SearchForm extends React.Component {
     }
 }
 
-export default withRouter(SearchForm)
+export default SearchForm
