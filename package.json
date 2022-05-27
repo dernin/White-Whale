@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest --watch --silent"
   },
   "engines": {
     "node": "14.17.0"
@@ -15,6 +15,7 @@
   "dependencies": {
     "@sendgrid/mail": "^7.6.0",
     "bulma": "^0.9.3",
+    "find-in-files": "^0.5.0",
     "jsc8": "^0.16.3",
     "json5": "^2.2.0",
     "jsonic": "^1.0.1",
@@ -38,5 +39,8 @@
     "jest": "^27.2.1",
     "react-test-renderer": "^17.0.2"
   },
-  "crypto": false
+  "crypto": false,
+  "jest": {
+    "verbose": true
+  }
 }
