@@ -1,5 +1,5 @@
 import React from 'react'
-import { strip, getData } from '../lib/util'
+import { strip } from '../lib/util'
 
 class SearchForm extends React.Component {
     constructor(props) {
@@ -13,8 +13,6 @@ class SearchForm extends React.Component {
             prevAuth: '',
             prevPhrase: ''
         }
-
-        this.router = props.router
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -33,7 +31,6 @@ class SearchForm extends React.Component {
     }
 
     async handleSubmit(event) {
-        console.log('handle Submit ran')
         event.preventDefault()
         if (this.state.author === 'Select an author') {
             this.setState({
@@ -47,12 +44,12 @@ class SearchForm extends React.Component {
             })
             return
         }
-        if (this.state.author == this.state.prevAuth && this.state.phrase == this.state.prevPhrase) {
+        else if (this.state.author == this.state.prevAuth && this.state.phrase == this.state.prevPhrase) {
             return
         }
         else {
-            console.log(this.state.author + " " + this.state.prevAuth)
-            console.log(this.state.phrase + " " + this.state.prevPhrase)
+            // console.log(this.state.author + " " + this.state.prevAuth)
+            // console.log(this.state.phrase + " " + this.state.prevPhrase)
             this.setState({
                 ['prevAuth']: this.state.author,
                 ['prevPhrase']: this.state.phrase
@@ -81,11 +78,10 @@ class SearchForm extends React.Component {
                                 {this.props.authorList.map((name) => {
                                     return <option key={name} value={name}>{name}</option>
                                 })}
-
                             </select>
-                            <div className="has-text-warning is-size-4">
+                        </div>
+                        <div className="has-text-warning is-size-4">
                                 {this.state.authorError}
-                            </div>
                         </div>
                     </div>
                     <div className="column">

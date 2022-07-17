@@ -1,12 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Header from '../components/header'
 import Body from '../components/body'
-import Footer from '../components/footer'
-import { searchPhrase } from '../lib/search'
-import { getAuthors, setAuthorData } from '../lib/authors'
+import { getAuthors } from '../lib/authors.ts'
 import Layout from '../components/layout'
 import { getFabric } from '../lib/macrometa'
+
 
 export async function getStaticProps() {
     await getFabric()

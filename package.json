@@ -7,13 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch --silent"
+    "test": "jest --watch --silent",
+    "coverage": "jest --coverage"
   },
   "engines": {
     "node": "14.17.0"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.6.0",
+    "@types/react": "^17.0.2",
     "bulma": "^0.9.3",
     "find-in-files": "^0.5.0",
     "jsc8": "^0.16.3",
@@ -27,7 +29,8 @@
     "sass": "^1.42.1",
     "sib-api-v3-sdk": "^8.2.1",
     "stream": "0.0.2",
-    "swr": "^1.1.0"
+    "swr": "^1.1.0",
+    "typescript": "^4.7.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",

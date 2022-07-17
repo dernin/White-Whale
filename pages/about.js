@@ -6,48 +6,22 @@ import AuthorDescription from '../components/authorDescription'
 import Block from '../components/block'
 import { runQuery, getFabric } from '../lib/macrometa'
 import { find } from 'find-in-files'
+import authors from '../public/data/authors.json'
 
 export async function getStaticProps() {
-    await getFabric()
-    var passedres = []
-    const r = find('ocean', './public/data/melville/').then(function(results) {
-        for (var result in results) {
-            let fullresult = { name: result, lines: results[result].line }
-            passedres.push(fullresult)
-            var res = results[result];
-            console.log(
-                'found "' + res.matches[0] + '" ' + res.count
-                + ' times in "' + result + '"'
-            );
-        }
-    })
 
     const authorList = getAuthors()
 
-    const authorDataList = {}
-    const worksData = await runQuery('FOR file IN authors RETURN file')
 
-    for (var author of authorList) {
-        authorDataList[author] = worksData.filter(file => {
-            return file.name == author
-        })
-        
-    }
-
-
-    
     return {
         props: {
+            authors,
             authorList,
-            authorDataList,
-            passedres,
         }
     }
 }
 
 export default function About(props) {
-    console.log(props.passedres)
-    console.log(props.authorList)
     const aboutText = <>
     <Block>White Whale is a tool for comparing the works of an author. Repetition of ideas, language, and allusions have struck me as a reader, as I have made my way through Herman Melville&apos;s complete works. Not only can you draw lines between the works on topics like sailing, characters finding themselves lost or stuck somewhere, and exploration of exotic locations that lead to inner discovery, but in classical allusions to Ovid and Homer in <em>White Jacket</em> and <em>Mardi</em> or Biblical allusions in <em>Moby-Dick</em> and <em>Clarel</em> (which unfortunately could not be included in the search &mdash; see below). I thought it would be helpful to new and seasoned academics and admirers of literature to be able to quickly cross reference between and within works to aid their scholarship and understanding of these texts. </Block>
     <Block>One could compare the use of &apos;savage&apos; across Melville&apos;s works or quickly see how many times &apos;poison&apos; appears in Shakespeare&apos;s plays.</Block>
@@ -65,7 +39,7 @@ export default function About(props) {
         <Layout>
             <AboutSection title="About White Whale" text={aboutText} />
             <AboutSection title="Authors" id="authors" text={authorsText}>{props.authorList.map(author => {
-                return <AuthorDescription key={author} title={author} data={props.authorDataList[author]}></AuthorDescription>
+                return <AuthorDescription key={author} title={author} data={props.authors[author]}></AuthorDescription>
             })}</AboutSection>
             <AboutSection title="Technology" id="technology" text={techText}></AboutSection>
         </Layout>

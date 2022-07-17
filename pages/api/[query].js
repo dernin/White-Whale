@@ -1,4 +1,4 @@
-import { searchPhrase } from '../../lib/search'
+import { searchPhrase, cacheSearch } from '../../lib/cache'
 import { populateCollection, runQuery } from '../../lib/macrometa'
 
 export default async function handler(req, res) {
@@ -12,17 +12,17 @@ export default async function handler(req, res) {
     
 
     const results = await runQuery(
-        `FOR file IN searches FILTER file.name == '${author}_search_${phrase}' RETURN file`
+        `FOR file IN searches_new FILTER file.name == '${author}_search_${phrase}' RETURN file`
     )
 
     // if no results, send back false
     if (results.length == 0) {
 
         // to keep it from running searchPhrase more than once
-        const checkCache = await runQuery(`FOR file IN caching FILTER file.name == '${author}' AND file.search == '${phrase}' RETURN file `)
+        const checkCache = await runQuery(`FOR file IN caching_new FILTER file.name == '${author}' AND file.search == '${phrase}' RETURN file `)
+        console.log('checkCache', checkCache)
         if (checkCache.length == 0) {
-            searchPhrase(phrase, author)
-            populateCollection('caching', {name: author, search: phrase})
+            cacheSearch(phrase, author)
         }
         
         return res.status(299).json({error: 'caching'})

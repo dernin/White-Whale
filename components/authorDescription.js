@@ -21,11 +21,9 @@ export default class AuthorDescription extends React.Component {
         }
 
         this.title = props.title
-        this.author = authors[props.title]
-        this.description = this.author['summary']
+        this.description = authors[props.title]['summary']
 
-        this.data = props.data[0]
-        //console.log(this.data)
+        this.data = props.data['works']
 
         this.markdown = <ReactMarkdown>{this.description}</ReactMarkdown>
 
@@ -51,7 +49,6 @@ export default class AuthorDescription extends React.Component {
     }
 
     Expand() {
-        console.log('expand')
         let height
         let icon
         if (this.state.cardHeight == 0) {
@@ -113,12 +110,6 @@ export default class AuthorDescription extends React.Component {
                                     </div>
                                     <div className="columns is-multiline">
                                         {this.keys.map((key) => {
-                                            if (
-                                                key != 'time' &&
-                                                !isEmpty(
-                                                    this.data[key]['item_id']
-                                                )
-                                            ) {
                                                 return (
                                                     <SimpleWork
                                                         key={key}
@@ -130,12 +121,10 @@ export default class AuthorDescription extends React.Component {
                                                         }
                                                     />
                                                 )
-                                            }
+                                            
                                         })}
                                     </div>
                                 </div>
-                            
-                        
                     </div>
                 </Card>
         )

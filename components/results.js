@@ -2,8 +2,6 @@ import { useState } from 'react'
 import Work from './work'
 import Loader from './loader'
 import useSWR from 'swr'
-import { runQuery } from '../lib/macrometa'
-//const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 const fetcher = async (url) => {
     const res = await fetch(url)
@@ -25,11 +23,11 @@ const fetcher = async (url) => {
 function useFetchResults(apiString) {
     const { data, error } = useSWR(apiString, fetcher, {
         onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
-            // if more than 30 tries, give up (5 minutes)
+            // if more than 30 tries, give up (2.5 minutes)
             if (retryCount >= 30) return
 
             // Retry after 15 seconds
-            setTimeout(() => revalidate({ retryCount }), 15000)
+            setTimeout(() => revalidate({ retryCount }), 5000)
         },
         revalidateIfStale: false,
         revalidateOnFocus: false,
@@ -48,8 +46,7 @@ export default function Results(props) {
 
     const longSearchMessage = (
         <div className="has-text-centered mt-2">
-            This may take a few minutes. Please be patient as we search through{' '}
-            {props.author}&apos;s bibliography.
+            {props.longSearchMessage}
         </div>
     )
 
@@ -57,24 +54,20 @@ export default function Results(props) {
         `/api/author=${props.author}&phrase=${props.phrase}`
     )
 
-    const pageData = useFetchResults(`/api/works?author=${props.author}`)
+    //const pageData = useFetchResults(`/api/works?author=${props.author}`)
 
     //console.log('pageData', pageData.results)
 
-    function buildResults(results, pageData) {
+    function buildResults(results) {
 
 
         const formattedResults = results.map((work) => {
             if (work['matches'] != null && work['matches'].length > 0) {
-                const workPages = pageData.filter((entry) => {
-                    return entry['ia'] == work['ia']
-                })
                 return (
                     <Work
                         key={work['ia']}
                         data={work}
                         author={props.author}
-                        pageData={workPages}
                     />
                 )
             }
@@ -89,14 +82,13 @@ export default function Results(props) {
             return <div className="has-text-centered">No results</div>
         }
     }
-    if (searchresults.isLoading || searchresults.isError || pageData.isLoading)
+    if (searchresults.isLoading || searchresults.isError)
         return <Loader longSearchMessage={longSearchMessage} />
 
     return (
         <>
             {buildResults(
-                searchresults.results['allMatches'],
-                pageData.results
+                searchresults.results['allMatches']
             )}
         </>
     )

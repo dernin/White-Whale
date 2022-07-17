@@ -43,7 +43,7 @@ export default function Body(props) {
                     className="section pt-0"
                 >
                     {searched &&
-                        <Results author={currentAuthor} phrase={currentPhrase} /> }
+                        <Results author={currentAuthor} phrase={currentPhrase} longSearchMessage={`This may take a few minutes. Please be patient as we search through ${currentAuthor}'s bibliography.`} /> }
                 </div>
             </div>
         </div>

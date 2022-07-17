@@ -1,7 +1,6 @@
 import React from 'react'
-import { getTitle, authorFolder } from '../lib/util'
+import { getTitle} from '../lib/util'
 import Match from './match'
-import { runQuery } from '../lib/macrometa'
 
 export default class Work extends React.Component {
     constructor(props) {
@@ -10,7 +9,7 @@ export default class Work extends React.Component {
         this.state = {
             matchVisible: false,
             matchesHeight: 0,
-            expandIcon: '+',
+            expandIcon: 'fa-angle-right',
         }
 
         this.Expand = this.Expand.bind(this)
@@ -26,10 +25,7 @@ export default class Work extends React.Component {
 
     // Get number of matches
     this.matches = this.data['matches']
-
-    //const authorFold = authorFolder(props.author)
-    
-    //this.pageData = this.getPageData(props.author, this.data['ia'])
+    this.q = this.data['q']
     }
 
 
@@ -43,8 +39,6 @@ export default class Work extends React.Component {
 
     }
 
-    
-
     Expand(){
         let height
         if (this.state.matchesHeight == 0) {
@@ -55,15 +49,13 @@ export default class Work extends React.Component {
         }
 
         let icon
-        if (this.state.expandIcon == '+') {
-            icon = '-'
+        if (this.state.expandIcon == 'fa-angle-right') {
+            icon = 'fa-angle-down'
            
         } else {
-            icon = '+'
+            icon = 'fa-angle-right'
         }
 
-        
-        
         this.setState((prevState) => ({
             matchVisible: !prevState.matchVisible,
             matchesHeight: height,
@@ -86,21 +78,25 @@ export default class Work extends React.Component {
     render() {
         return (
             <div className="work-container">
-                <div className="work-header"  onClick={this.Expand}>
+                <div className="work-header clickable"  onClick={this.Expand}>
                     <div className="matches-circle"><div className="matches-count">{this.matches.length}</div></div>
                     <div className="work-title">{this.title}</div>
                     
-                    <div className="plus-icon">{this.state.expandIcon}</div>
+                    
+                    <button className="card-header-icon plus-icon" aria-label="see more">
+                        <span className="icon">
+                            <i className={`fas ${this.state.expandIcon}`} aria-hidden="true"></i>
+                        </span>
+                    </button>
                 </div>
                 <div className={`matches-container ${this.state.matchVisible ? "active" : ""}`} ref={(matchesContainer) => {this.matchesContainer = matchesContainer}}>
-                {this.matches.map((match, key) => {
+                {this.matches.map((match, index) => {
                     return (
                         <Match
-                            key={key}
+                            key={this.data['ia'] + index}
                             data={match}
+                            q = {this.q}
                             id={this.data['ia']}
-                            author={this.props.author}
-                            pageData={this.pageData}
                         />
                     )
                 })}
