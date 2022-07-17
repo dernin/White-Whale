@@ -3,7 +3,6 @@ import Block from "../components/block";
 import FormField from "../components/formField";
 import FieldButton from "../components/fieldButton";
 import React from "react";
-import { getData } from "../lib/util";
 import { strip } from "../lib/util";
 
 export async function getStaticProps() {

@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import { find, findSync } from 'find-in-files'
-import { readFile, findMatches, filterPeriods, findNextTwoSentences, findRegExpMatch, buildFullMatch, findMatchesWholeFile } from '../lib/filesearch.ts'
+import { readFile, findMatches, filterPeriods, findNextTwoSentences, findRegExpMatch, buildFullMatch, findMatchesWholeFile, buildFullMatchWholeFile, buildMatchStringWholeFile, findNextTwoSentencesWholeFile } from '../lib/filesearch.ts'
 import os from 'os'
 import fs from 'fs'
 
@@ -19,9 +19,30 @@ export async function getStaticProps(){
     */
 
     console.time('findMatchesWholeFile')
-    let passedres = findMatchesWholeFile('./public/data/melville/mobydickorwhitew00melv_1_djvu.txt', new RegExp('Ishmael', 'gi'))
+    //let passedres = findMatchesWholeFile('./public/data/tests/test2.txt', 'lorem')
+    //findMatchesWholeFile('./public/data/melville/mobydickorwhitew00melv_1_djvu.txt', new RegExp('Ishmael', 'gi'))
     console.timeEnd('findMatchesWholeFile')
 
+    const test3 = readFile('./public/data/tests/test3.txt')
+    const test7 = readFile('./public/data/tests/test7.txt')
+    const test3MatchMiddle = ['nisi']
+    test3MatchMiddle.index = 154
+
+    const test7MatchStart = ['Lorem']
+    test7MatchStart.index = 0
+
+    const test2 = readFile('./public/data/tests/test2.txt')
+    const test2Match = ['lorem']
+    test2Match.index = 0
+
+    const test2Match2 = ['ipsum']
+    test2Match2.index = 8
+
+    const battleTest = readFile('./public/data/melville/battlepiecesanda00melvrich_djvu.txt')
+    const battleMatch = ['Shenandoah']
+    battleMatch.index = 4260
+    
+    let passedres = findMatchesWholeFile('./public/data/tests/test2.txt', 'lorem')
     //console.time('findMatches')
     //findMatches(readFile('./public/data/melville/mobydickorwhitew00melv_1_djvu.txt'), 'Ishmael')
     //buildFullMatch('Ishmael', 10, readFile('./public/data/melville/mobydickorwhitew00melv_1_djvu.txt'), 52)
@@ -34,7 +55,7 @@ export async function getStaticProps(){
     
 return {
     props: {
-        //passedres,
+        passedres,
     }
 }
 }
@@ -43,7 +64,7 @@ return {
 // !!! Link to search: https://archive.org/details/typeeromanceofso00melvuoft/mode/2up?q=ocean
 
 export default function Test(props) {
-    //console.log(JSON.stringify(props.passedres))
+    console.log(JSON.stringify(props.passedres))
     return (<>
         <Layout>
         </Layout>
