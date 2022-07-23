@@ -54,8 +54,8 @@ export async function cacheSearch(phrase: string, author: string): Promise<strin
         if (!isEmpty(allAuthorWorks[key]['item_id'])) {
             console.log('Key is ' + key)
 
-            const dir = path.resolve('./public', 'data')
-            const filename = dir + '/' + authorFolder(author) + '/' + allAuthorWorks[key]['item_id'] + '_djvu.txt'
+            //const dir = path.resolve('./public', 'data')
+            const filename = process.cwd() + '/data/' + authorFolder(author) + '/' + allAuthorWorks[key]['item_id'] + '_djvu.txt'
 
             const matches = findMatchesWholeFile(filename, phrase)
 
