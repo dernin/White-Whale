@@ -13,7 +13,6 @@ module.exports = {
       net: false,
       tls: false,
       http: false,
-      querystring: false,
     };
 
     return config

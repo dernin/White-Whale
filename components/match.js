@@ -1,30 +1,16 @@
-import fs from 'fs'
-import { formatMatch, getPageNumber } from '../lib/util'
 import Link from 'next/link'
-import { useLayoutEffect, useState } from 'react'
+
 
 
 
 export default function Match(props) {
-
-
-    const data = props.data
-    //console.log(data['par'][0]['page'])
-    //console.log(props.pageData[0])
-    
-    const page = getPageNumber(data['par'][0]['page'], props.pageData[0])
-    
-    const pageNumber = data['par'][0]['page']
-
-    const text = formatMatch(data['text'])
-
-    
-
-    const link = "https://archive.org/details/" + props.id + "/page/" + page + "/mode/1up"
+   
+    const text = props.data
+    const link = "https://archive.org/details/" + props.id + "/mode/2up?q=" + props.q
 
     return <div className="match">
         <div className="match-text" dangerouslySetInnerHTML={{__html: text}}></div>
-        <div className="page">Page: <Link href={link}><a target='_blank'>{pageNumber}</a></Link></div>
+        <div className="page"><Link href={link}><a target='_blank'>Find in the text</a></Link></div>
     </div>
 
 }

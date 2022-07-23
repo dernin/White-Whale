@@ -7,8 +7,6 @@
 
 # testing
 /coverage
-/__tests__
-/__mocks__
 
 # next.js
 /.next/
@@ -16,7 +14,6 @@
 
 # production
 /build
-fly.toml
 
 # misc
 .DS_Store
@@ -33,7 +30,6 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-.env
 white-whale-333115-92a7e623d688.json
 
 # vercel

@@ -1,4 +1,3 @@
-import { searchPhrase } from '../../lib/search'
 import { runQuery } from '../../lib/macrometa'
 
 export default async function handler(req, res) {
