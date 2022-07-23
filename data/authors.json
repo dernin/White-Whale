@@ -1,0 +1,350 @@
+{
+    "Herman Melville": {
+        "id": "OL29497A",
+        "name": "Herman Melville",
+        "folder": "melville",
+        "time": 1636936395510,
+        "summary": "All of Melville's works are available, except for *Clarel*, *Timoleon*, *Weeds and Wildings Chiefly*, *Parthenope*, and other uncollected poetry and prose. Excerpts from *Clarel* and *Timoleon* are included in *John Marr and Other Poems*. If you work at an institution with a copy of any of these works, please consider uploading them to archive.org.",
+        "works": {
+            "Typee: A Peep at Polynesian Life": {
+                "item_id": "typeeromanceofso00melvuoft"
+            },
+            "Omoo: A Narrative of Adventures in the South Seas": {
+                "item_id": "omoonarrativeofa00melviala"
+            },
+            "Mardi: And a Voyage Thither Vol 1": {
+                "item_id": "mardiandvoyageth_01melv"
+            },
+            "Mardi: And a Voyage Thither Vol 2": {
+                "item_id": "mardiandvoyageth02melv"
+            },
+            "Redburn: His First Voyage": {
+                "item_id": "redburnhisfirstv00melv_0"
+            },
+            "White-Jacket; or, The World in a Man-of-War": {
+                "item_id": "whitejacket00melvrich"
+            },
+            "Moby-Dick; or, The Whale": {
+                "item_id": "mobydickorwhitew00melv_1"
+            },
+            "Pierre; or, The Ambiguities": {
+                "item_id": "pierreorambiguit00melvuoft"
+            },
+            "Israel Potter: His Fifty Years of Exile": {
+                "item_id": "israelpotterhisf0000melv_l0m5"
+            },
+            "The Confidence-Man: His Masquerade": {
+                "item_id": "confidencemanhis00melvrich"
+            },
+            "Billy Budd, Sailor (An Inside Narrative)": {
+                "item_id": "melville_herman_1819_1891_billy_budd"
+            },
+            "Battle Pieces and Aspects of The War": {
+                "item_id": "battlepiecesanda00melvrich"
+            },
+            "John Marr and Other Poems": {
+                "item_id": "johnmarrotherpoe00melvrich"
+            },
+            "The Apple-Tree Table and Other Sketches": {
+                "item_id": "appletreetable00melvrich"
+            },
+            "The Piazza Tales": {
+                "item_id": "piazztales00melvrich"
+            },
+            "Some Personal Letters of Herman Melville": {
+                "item_id": "cu31924022066900"
+            }
+        }
+    },
+    "William Shakespeare": {
+        "id": "OL9388A",
+        "name": "William Shakespeare",
+        "folder": "shakespeare",
+        "time": 1635901559573,
+        "summary": "All of Shakespeare's works are available with the exception of Edward III as nothing beyond the facsimile appears to exist in public domain. As anyone who has studied Shakespeare and the editorial history of his works will know, it is an impossible task to compile the definitive Shakespeare, especially with public domain editions. I have opted not to use facsimiles of the original manuscripts for a few reasons. One, I am not sure scanned facsimiles exist for all of his work, and even if they did would require in many cases choosing between multiple versions of a work. Two, it would be hard to search through the unmodernized (often inconsistent) spellings present in the texts. Instead I have, wherever possible, selected editions that comment on their own editorial process for selecting a base text and where and why they modified where they did.",
+        "works": {
+            "Antony & Cleopatra": {
+                "item_id": "antonycleopatra01shak"
+            },
+            "Coriolanus": {
+                "item_id": "williamshakespea00shak"
+            },
+            "Hamlet": {
+                "item_id": "tragedyofhamle00shakuoft"
+            },
+            "Julius Ceasar": {
+                "item_id": "juliuscaesar01shak"
+            },
+            "King Lear": {
+                "item_id": "cu31924013139716"
+            },
+            "Macbeth": {
+                "item_id": "macbeth07shak"
+            },
+            "Othelo": {
+                "item_id": "tragedyofothello00shakiala"
+            },
+            "Romeo and Juliet": {
+                "item_id": "tragedyofromeoju00shakiala"
+            },
+            "Timon of Athens": {
+                "item_id": "shakespearestra11shakgoog"
+            },
+            "Titus Andronicus": {
+                "item_id": "tudorshakespeare33shak"
+            },
+            "Troilus and Cressida": {
+                "item_id": "troiluscressidae00shakuoft"
+            },
+            "All's Well That Ends Well": {
+                "item_id": "allswellthatend02shakgoog"
+            },
+            "As You Like It": {
+                "item_id": "asyoulikeit1890shak"
+            },
+            "The Comedy of Errors": {
+                "item_id": "comedyoferrors00shakuoft"
+            },
+            "Cymbeline": {
+                "item_id": "cymbeline00shakuoft"
+            },
+            "Love's Labour's Lost": {
+                "item_id": "loveslabourslost00shakuoft"
+            },
+            "Measure For Measure": {
+                "item_id": "measureformeasur00shakuoft"
+            },
+            "The Merchant of Venice": {
+                "item_id": "merchantofvenice00shak_15"
+            },
+            "The Merry Wives of Windsor": {
+                "item_id": "merrywivesofhart00shakuoft"
+            },
+            "A Midsummer Night's Dream": {
+                "item_id": "shakespearemidwest00shak"
+            },
+            "Much Ado About Nothing": {
+                "item_id": "muchadoaboutnothshak"
+            },
+            "Pericles, Prince of Tyre": {
+                "item_id": "pericleseditedbykd00shakuoft"
+            },
+            "The Taming of the Shrew": {
+                "item_id": "tamingofshrewedi00shakuoft"
+            },
+            "The Tempest": {
+                "item_id": "shakespearestemp00shak"
+            },
+            "Twelfth Night": {
+                "item_id": "twelfthnightorwh1911shak"
+            },
+            "The Two Gentlemen of Verona": {
+                "item_id": "twogentlemenillus00shakuoft"
+            },
+            "The Two Noble Kinsmen": {
+                "item_id": "twonoblekinsmen00shakuoft"
+            },
+            "The Winter's Tale": {
+                "item_id": "winterstale01shak"
+            },
+            "Henry IV, Part 1": {
+                "item_id": "kinghenryfourthp00shakuoft"
+            },
+            "Henry IV, Part 2": {
+                "item_id": "henryivpt02shak"
+            },
+            "Henry V": {
+                "item_id": "shakespeareshenr05shak"
+            },
+            "Henry VI, Part 1": {
+                "item_id": "firstpartofking600shakuoft"
+            },
+            "Henry VI, Part 2": {
+                "item_id": "secondpartofk6th00shakuoft"
+            },
+            "Henry VI, Part 3": {
+                "item_id": "thirdpartofkingh00shakuoft"
+            },
+            "Henry VIII": {
+                "item_id": "kinghenryvii00shak"
+            },
+            "King John": {
+                "item_id": "lifedeathofkingj00shakuoft"
+            },
+            "Richard II": {
+                "item_id": "tragedyofkingri00shakuoft"
+            },
+            "Richard III": {
+                "item_id": "3edtragedyofking00shakuoft"
+            },
+            "Poems": {
+                "item_id": "poemssha00shakuoft"
+            }
+        }
+    },
+    "Jane Austen": {
+        "id": "OL21594A",
+        "name": "Jane Austen",
+        "folder": "austen",
+        "time": 1634072601849,
+        "summary": "All of Jane Austen's works are included.",
+        "works": {
+            "Sense and Sensibility": {
+                "item_id": "sensesensibility00austiala"
+            },
+            "Pride and Prejudice": {
+                "item_id": "prideprejudiceno00austuoft"
+            },
+            "Mansfield Park": {
+                "item_id": "mansfieldparknov00austiala"
+            },
+            "Emma": {
+                "item_id": "emmaausten00austrich"
+            },
+            "Northanger Abbey": {
+                "item_id": "northangerabbey00austrich"
+            },
+            "Persuasion": {
+                "item_id": "persuasion00austuoft"
+            },
+            "Lady Susan, The Watsons, And A Memoir": {
+                "item_id": "ladysusanwatsons00austrich"
+            },
+            "Love & Friendship And Other Early Works": {
+                "item_id": "lovefreindshipie00austuoft"
+            },
+            "Letters of Jane Austen": {
+                "item_id": "lettersofjaneaus03aust"
+            }
+        }
+    },
+    "Nathaniel Hawthorne": {
+        "id": "OL26681A",
+        "name": "Nathaniel Hawthorne",
+        "folder": "hawthorne",
+        "time": 1634072601849,
+        "summary": "All of Nathaniel Hawthorne's novels and collections are included. It is likely there are uncollected works that are not represented here.",
+        "works": {
+            "The Scarlet Letter": {
+                "item_id": "scarletletterar00hawtgoog"
+            },
+            "The House Of The Seven Gables": {
+                "item_id": "in.ernet.dli.2015.262505"
+            },
+            "The Blithedale Romance": {
+                "item_id": "blithedaleroman01hawtgoog"
+            },
+            "The Marble Faun": {
+                "item_id": "marblefaunorrom10hawtgoog"
+            },
+            "The Dolliver Romance, Fanshawe, And Septimius Felton": {
+                "item_id": "dolliverromance00hawtgoog"
+            },
+            "Twice-told Tales": {
+                "item_id": "twicetoldtales01unkngoog"
+            },
+            "True Stories From History And Biography": {
+                "item_id": "truestoriesfrom07hawtgoog"
+            },
+            "Mosses from an Old Manse": {
+                "item_id": "mossesfromanold07hawtgoog"
+            },
+            "A Wonder Book For Girls & Boys": {
+                "item_id": "AWonderBookForGirlsBoys"
+            },
+            "The Snow-image, and Other Twice-told Tales": {
+                "item_id": "snowimageandoth01hawtgoog"
+            },
+            "Tanglewood Tales": {
+                "item_id": "tanglewoodtales07hawtgoog"
+            },
+            "The Great Stone Face and Other Tales of the White Mountains": {
+                "item_id": "greatstonefacea04hawtgoog"
+            },
+            "Our Old Home, And English Notebooks Vol. 1": {
+                "item_id": "ouroldhome04unkngoog"
+            },
+            "Our Old Home, And English Notebooks Vol. 2": {
+                "item_id": "ouroldhomeanden04hawtgoog"
+            },
+            "Passages from the French and Italian Note-books": {
+                "item_id": "passagesfromfre00hawtgoog"
+            }
+        }
+    },
+    "Oscar Wilde": {
+        "id": "OL20646A",
+        "name": "Oscar Wilde",
+        "folder": "wilde",
+        "time": 1634072601849,
+        "summary": "All of Wilde's plays, fiction and poetry is included. Most of his nonfiction is included as well, though his letters are not.",
+        "works": {
+            "The Picture Of Dorian Gray": {
+                "item_id": "in.ernet.dli.2015.268439"
+            },
+            "Intentions": {
+                "item_id": "intentions00wildgoog"
+            },
+            "The Happy Prince and Other Tales": {
+                "item_id": "happyprinceando00wildgoog"
+            },
+            "A House Of Pomegranates": {
+                "item_id": "in.ernet.dli.2015.96715"
+            },
+            "Lord Arthur Savile's Crime and Other Stories": {
+                "item_id": "lordarthursavil00wildgoog"
+            },
+            "Poems": {
+                "item_id": "in.ernet.dli.2015.176219"
+            },
+            "The Soul of Man Under Socialism": {
+                "item_id": "soulmanundersoc00wildgoog"
+            },
+            "Essays, Criticism, and Reviews": {
+                "item_id": "worksoscarwilde00wildgoog"
+            },
+            "Salome, A Florentine Tragedy, and Vera": {
+                "item_id": "completeworksos00rossgoog"
+            },
+            "The Duchess of Padua": {
+                "item_id": "duchesspaduaapl00wildgoog"
+            },
+            "Lady Windermere's Fan": {
+                "item_id": "ladywindermeres00wildgoog"
+            },
+            "A Woman of No Importance": {
+                "item_id": "awomannoimporta00wildgoog"
+            },
+            "An Ideal Husband": {
+                "item_id": "anidealhusband00wildgoog"
+            },
+            "The Importance Of Being Earnest": {
+                "item_id": "in.ernet.dli.2015.228091"
+            }
+        }
+    },
+    "Charlotte Bronte": {
+        "id": "OL4326635A",
+        "name": "Charlotte Bronte",
+        "folder": "brontec",
+        "time": 1636913865604,
+        "summary": "All of Charlotte Bronte's works except for the Juvenilia and the unfinished *Emma* are included.",
+        "works": {
+            "Jane Eyre": {
+                "item_id": "janeeyreautobiog00bronuoft"
+            },
+            "Shirley": {
+                "item_id": "shirleyatale04brongoog"
+            },
+            "Villette": {
+                "item_id": "villette08brongoog"
+            },
+            "The Professor": {
+                "item_id": "professorbycurr01brongoog"
+            },
+            "Poems by Currer, Ellis, and Acton Bell": {
+                "item_id": "poemsbycurrerel00brongoog"
+            }
+        }
+    }
+}
