@@ -1,9 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
-import { strip, getData } from '../lib/util'
-=======
 import { strip } from '../lib/util'
->>>>>>> origin/txtsearch
 
 class SearchForm extends React.Component {
     constructor(props) {
@@ -18,11 +14,6 @@ class SearchForm extends React.Component {
             prevPhrase: ''
         }
 
-<<<<<<< HEAD
-        this.router = props.router
-
-=======
->>>>>>> origin/txtsearch
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -40,10 +31,6 @@ class SearchForm extends React.Component {
     }
 
     async handleSubmit(event) {
-<<<<<<< HEAD
-        console.log('handle Submit ran')
-=======
->>>>>>> origin/txtsearch
         event.preventDefault()
         if (this.state.author === 'Select an author') {
             this.setState({
@@ -57,21 +44,12 @@ class SearchForm extends React.Component {
             })
             return
         }
-<<<<<<< HEAD
-        if (this.state.author == this.state.prevAuth && this.state.phrase == this.state.prevPhrase) {
-            return
-        }
-        else {
-            console.log(this.state.author + " " + this.state.prevAuth)
-            console.log(this.state.phrase + " " + this.state.prevPhrase)
-=======
         else if (this.state.author == this.state.prevAuth && this.state.phrase == this.state.prevPhrase) {
             return
         }
         else {
             // console.log(this.state.author + " " + this.state.prevAuth)
             // console.log(this.state.phrase + " " + this.state.prevPhrase)
->>>>>>> origin/txtsearch
             this.setState({
                 ['prevAuth']: this.state.author,
                 ['prevPhrase']: this.state.phrase
@@ -100,18 +78,10 @@ class SearchForm extends React.Component {
                                 {this.props.authorList.map((name) => {
                                     return <option key={name} value={name}>{name}</option>
                                 })}
-<<<<<<< HEAD
-
-                            </select>
-                            <div className="has-text-warning is-size-4">
-                                {this.state.authorError}
-                            </div>
-=======
                             </select>
                         </div>
                         <div className="has-text-warning is-size-4">
                                 {this.state.authorError}
->>>>>>> origin/txtsearch
                         </div>
                     </div>
                     <div className="column">

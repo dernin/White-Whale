@@ -1,5 +1,4 @@
 import authors from '../public/data/authors.json'
-import fs from 'fs'
 import json5 from 'json5'
 
 // string -> Boolean
