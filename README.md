@@ -8,7 +8,7 @@ For more about White Whale and the authors included in the search, visit the abo
 
 ## Technical Brief
 
-White Whale's search functionality is based off of <a href="https://archive.org">archive.org</a> and <a href="https://openlibrary.org">Open Library's </a>APIs. In building this website, I found that these APIs are not well documented and that there are some structural patterns that can be frustrating to work with. See the section below on working with archive.org's APIs if you're interested in learning more about that.
+Originally, White Whale's search was based off of <a href="https://archive.org">archive.org</a> and <a href="https://openlibrary.org">Open Library's </a>APIs. Unfortunately this led to slow searches, and working with the API's can be quite difficult, so I have since rebuilt a search algorithm from scratch using TypeScript and implemented it in place of the API. 
 
 The front-end is built with <a href="https://nextjs.org/">Next.js</a> and the <a href="https://bulma.io/">Bulma.io</a> CSS framework. The data is stored in a noSQL database with <a href="https://www.macrometa.com" >Macrometa.</a>
 
@@ -39,6 +39,7 @@ What it returns is not easy to navigate or index into, so I opted to use the inf
 ### Other Things I Learned
 
 This was a learning project for me. I had never used Node.js, Next.js, or Bulma before. In addition, I had never built anything that relied on APIs and had never built an API before. I learned a lot about asynchronous JavaScript, parsing and building JSON objects and writing files. I specifically chose to not use a database and instead rely on JSON files as a learning experience and because of the relative simplicity of the need data storage. 
+
 I initially developed the program to store data as local JSON files, without realizing that when in production Next.js does not support writing files to the server. In order to keep the same basic data structures, I switched to a noSQL database for storage.
 
 This is the first major project where I have used a testing library to build tests as I went along. There are still some inconsistencies in the code - for example sometimes I used React classes for components and other times used functional components that I would like to clean up when I have the time.
